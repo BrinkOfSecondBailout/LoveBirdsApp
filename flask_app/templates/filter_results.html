@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Schibsted+Grotesk&family=Titillium+Web:ital,wght@0,300;1,200&display=swap"
+        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Schibsted+Grotesk&display=swap" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='mediaqueries.css') }}">
+    <title>Filter Results</title>
+</head>
+<body>
+    <div>
+        <div class="results">
+            <div class="results-text">
+                <h1>We found some great choices!</h1>
+                <h3>Check out their profiles and send a heart!</h3>
+                <h4><a href="/dashboard">Back to dashboard</a></h4>
+            </div>
+            <div class="results-box">
+                {% if users %}
+                    {% for user in users %}
+                        <div>
+                            <a href="/users/{{user.id}}"><li>{{user.first_name}} {{user.last_name}}</li></a>
+                        </div>
+                    {% endfor %}
+                {% endif %}
+                {% if not users %}
+                    <p>No users fit your search at the moment... Try again!</p>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,723 @@
+* {
+    margin: 0 auto;
+    /* padding: 5px; */
+    /* width: 85%; */
+}
+
+/* scrollbar styling */
+
+::-webkit-scrollbar {
+    width: 0.5em;
+}
+
+::-webkit-scrollbar-track {
+    background: rgb(0, 0, 0);
+    border-radius: 100vw;
+}
+
+::-webkit-scrollbar-thumb {
+    background: rgb(196, 51, 11);
+    border-radius: 100vw;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: rgb(239, 70, 24);
+    border-radius: 100vw;
+}
+
+/* all defaults */
+
+body {
+    background-image: url(../static/files/lovebirds.png);
+    background-repeat: no-repeat;
+    background-color: rgb(250, 188, 1);
+    object-fit: contain;
+    z-index: -1;
+    overflow-x: hidden;
+    background-position: 40% 0%;
+}
+
+h1,h2,h3,h4,h5 {
+    font-family: 'Bebas Neue', cursive;
+    font-family: 'Schibsted Grotesk', sans-serif;
+}
+
+form,label,input {
+    padding: 5px;
+}
+
+p {
+    font-family: 'Schibsted Grotesk', sans-serif;
+    font-family: 'Titillium Web', sans-serif;
+}
+
+a {
+    text-decoration: none;
+    color: rgb(255, 255, 255);
+    position: relative;
+    letter-spacing: 0.5px;
+    padding: 0 10px;
+}
+
+a:hover {
+    color: rgba(255, 255, 255, 0.654);
+}
+
+.center {
+    text-align: center;
+}
+
+.flex {
+    display: flex;
+    padding: 5px;
+    width: 100%;
+    flex-wrap: wrap;
+}
+
+.flex2 {
+    display: flex;
+    padding: 5px;
+    width: 100%;
+    flex-wrap: wrap;
+}
+
+.container {
+    display: flex;
+}
+
+@-webkit-keyframes pulsate {
+    0% {
+        opacity: 0.5;
+    }
+
+    50% {
+        opacity: 1.0;
+    }
+
+    100% {
+        opacity: 0.5;
+    }
+}
+
+/* knick knack styling */
+
+.icon {
+    width: 40px;
+    height: 40px;
+}
+
+.header-text {
+    text-shadow: 2px 1px 5px white;
+}
+
+.welcome-font {
+    font-family: 'Lovers Quarrel', cursive;
+    font-size: 150px;
+    color: white;
+    text-shadow: 5px 5px 10px rgb(247, 205, 39);
+    text-align: center;
+}
+
+
+.upload-box {
+    width: 100%;
+    padding: 20px;
+}
+
+.notifications {
+    color: red;
+    text-shadow: 2px 2px 2px rgb(0, 0, 0);
+    font-size: x-large;
+    font-weight: bold;
+    -webkit-animation: pulsate 0.5s ease-in;
+    -webkit-animation-iteration-count: infinite;
+}
+
+.red {
+    color: red;
+    text-shadow: 1px 1px 1px black;
+}
+
+.small-input {
+    width: 100px;
+    border-radius: 10px;
+    padding: 10px;
+}
+
+.regular-input {
+    width: 80%;
+    border-radius: 10px;
+    padding: 10px;
+    margin-bottom: 10px;
+    margin-top: 10px;
+}
+
+.long-button {
+    width: 50%;
+    border-radius: 20px;
+    box-shadow: 2px 2px 5px 0px black;
+    background-color: rgba(242, 58, 52, 0.714);
+    color: rgba(255, 255, 255, 0.934);
+    border: 2px solid rgba(255, 255, 255, 0.867);
+}
+
+.regular-button {
+    width: 20%;
+    border-radius: 20px;
+    background-color: rgba(242, 58, 52, 0.714);
+    color: rgba(255, 255, 255, 0.934);
+    border: 2px solid rgba(255, 255, 255, 0.867);
+}
+
+.back-video {
+    position: absolute;
+    opacity: 1;
+    right: 0;
+    bottom: 0;
+    z-index: -1;
+    width: 80%;
+}
+
+.all-photos {
+    height: 300px;
+    overflow-x: hidden;
+    overflow-y: auto;
+    direction: rtl;
+
+}
+
+.one-photo {
+    display: flex;
+    flex-direction: column;
+    width: 300px;
+    height: 170px;
+    text-align: center;
+    padding: 10px;
+}
+
+.delete-button {
+    width: 80px;
+    border-radius: 10px;
+    box-shadow: 3px 2px 5px 0px black;
+    background-color: rgba(242, 58, 52, 0.714);
+    color: rgba(255, 255, 255, 0.934);
+    border: 2px solid rgba(255, 255, 255, 0.867);
+}
+
+.heart-shape {
+    -webkit-animation: pulsate 1s ease-out;
+    -webkit-animation-iteration-count: infinite;
+    opacity: 1.5;
+    width: 70px;
+}
+
+.block-button {
+    width: 70px;
+}
+
+.form-bg {
+    background-color: rgb(245, 195, 120);
+    opacity: 0.9;
+    width: 100%;
+    box-shadow: 4px 4px 5px 0px black;
+    border-radius: 10px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+/* index.html */
+.registration-container {
+    display: flex;
+}
+
+.left-register {
+
+}
+
+.right-login {
+
+}
+
+.register {
+    padding: 10px;
+    width: 100%;
+}
+
+.login {
+    padding: 10px;
+    width: 100%;
+}
+
+
+
+/* dashboard */
+
+.total {
+    display: flex;
+    width: 100%;
+}
+
+.top-message {
+    width: 70%;
+}
+
+.home {
+    width: 62%;
+}
+
+.hello-message {
+    padding: 10px;
+}
+
+.profile-bar {
+    display: flex;
+    justify-content: space-evenly;
+    width: 100%;
+    padding: 10px;
+}
+
+.photo-profile {
+    width: 220px;
+    height: 220px;
+    border-radius: 50%;
+    box-shadow: 4px 4px 5px 5px black;
+    padding: 3px;
+}
+
+.photo-profile-main {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    box-shadow: 2px 2px 5px 5px black;
+    padding: 3px;
+}
+
+.total-box {
+    width: 100%;
+    padding: 20px;
+    padding: 10px;
+}
+
+.lovebirds-box {
+    background-color: rgb(36, 172, 230);
+    opacity: 0.9;
+    width: 90%;
+    box-shadow: 4px 4px 5px 0px black;
+    border-radius: 10px;
+    margin-bottom: 10px;
+    padding-bottom: 10px;
+    text-align: center;
+    padding: 10px;
+}
+
+.bio-box {
+    background-color: rgb(255, 161, 20);
+    opacity: 0.9;
+    width: 90%;
+    box-shadow: 4px 4px 5px 0px black;
+    border-radius: 10px;
+    padding: 5px;
+    margin-bottom: 10px;
+    text-align: center;
+    border: 2px solid rgba(255, 255, 255, .5);
+    padding: 10px;
+}
+
+.center-bottom {
+    width: 90%;
+    text-align: center;
+    padding: 10px;
+}
+
+.one-note {
+    padding: 10px;
+}
+
+.wall-box {
+    background-image: url(../static/files/blue.jpg);
+    opacity: 0.9;
+    width: 100%;
+    box-shadow: 4px 4px 5px 0px black;
+    border-radius: 10px;
+    text-align: center;
+    height: 200px;
+    overflow-x: hidden;
+    overflow-y: auto;
+    direction: ltr;
+    padding: 10px;
+}
+
+.wall-text {
+    background-color: rgb(255, 86, 86);
+    opacity: 0.9;
+    box-shadow: 4px 4px 5px 0px black;
+    border-radius: 10px;
+    text-align: center;
+    height: 60px;
+    margin-bottom: 10px;
+}
+
+.note-date {
+    margin-bottom: 10px;
+}
+
+.nav-links {
+    padding: 10px;
+}
+
+.glass-box {
+    position: relative;
+    background: transparent;
+    border: 2px solid rgba(255, 255, 255, 0.758);
+    border-radius: 20px;
+    backdrop-filter: blur(15px);
+    box-shadow: 0 0 30px rgba(0, 0, 0, .5);
+    padding: 10px;
+    background-color: rgba(251, 170, 70, 0.706);
+    opacity: 0.9;
+}
+
+.nav-bar {
+    width: 100%;
+    height: 80%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.wall-form {
+    width: 100%;
+    border-radius: 10px;
+    padding: 10px;
+}
+
+
+/* user profile display */
+
+.top {
+    width: 60%;
+    padding: 10px;
+}
+
+.display {
+    width: 70%;
+}
+
+.all-photos1 {
+    display: grid;
+    justify-content: center;
+    height: 300px;
+    overflow-x: hidden;
+    overflow-y: auto;
+    direction: rtl;
+    width: 300px;
+    padding: 10px;
+}
+
+.icons {
+    text-align: center;
+    background-color: rgb(36, 172, 230);
+    opacity: 0.8;
+    border-radius: 20px;
+    box-shadow: 4px 4px 5px 0px black;
+    padding: 10px;
+    width: 80%;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.bottom {
+    width: 80%;
+}
+
+.bottom-nav-glass {
+    position: relative;
+    background: transparent;
+    border: 2px solid rgba(255, 255, 255, .5);
+    border-radius: 20px;
+    backdrop-filter: blur(30px);
+    box-shadow: 0 0 30px rgba(0, 0, 0, .5);
+    margin-top: 20px;
+    margin-bottom: 20px;
+    display: flex;
+    padding: 10px;
+}
+
+.heart-set {
+    text-align: center;
+    color: white;
+    padding: 5px;
+}
+
+.heart-text {
+    color: white;
+    width: 100px;
+    border-radius: 200px;
+    opacity: 0.9;
+}
+
+.photo-list {
+    width: 140px;
+    height: 100px;
+    border-radius: 20px;
+    box-shadow: 2px 2px 5px 2px black;
+    padding: 3px;
+}
+
+.heart-sent {
+    font-size: large;
+}
+
+.send-heart {
+    font-size: medium;
+}
+
+/* edit profile */
+
+.side-bar {
+    margin-top: 10px;
+    width: 70%;
+    padding: 10px;
+    text-align: center;
+}
+
+.edit-profile{
+    width: 95%;
+}
+
+/* inbox */
+
+.flex-column {
+    /* width: 40%; */
+}
+
+.inbox {
+    width: 40%;
+}
+
+.message-box {
+    background-color: rgb(36, 172, 230);
+    opacity: 0.9;
+    border-radius: 20px;
+    box-shadow: 4px 4px 5px 0px black;
+    padding: 10px;
+    color: black;
+    width: 50%;
+    margin-bottom: 15px;
+}
+
+.message-scroll {
+    width: 100%;
+    height: 600px;
+    overflow-x: hidden;
+    overflow-y: auto;
+    direction: ltr;
+    background: transparent;
+    border: 2px solid rgba(255, 255, 255, .5);
+    border-radius: 20px;
+    backdrop-filter: blur(30px);
+    box-shadow: 0 0 30px rgba(0, 0, 0, .5);
+    padding: 10px;
+}
+
+.message-text {
+    margin-left: 20px;
+    padding: 10px;
+}
+
+.message-buttons {
+    text-align: center;
+    padding: 10px;
+}
+
+.new-message {
+    width: 80%;
+    height: 250px;
+    padding: 10px;
+    border-radius: 20px;
+}
+
+/* filter page */
+
+.filter {
+    width: 90%;
+}
+
+.filter-form {
+    width: 50%;
+    padding: 10px;
+}
+
+.radio-boxes {
+    display: flex;
+    width: 50%;
+    text-align: center;
+}
+
+/* filter results page */
+
+.results-text {
+    height: 200px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+
+.results {
+    text-align: center;
+    padding: 10px;
+}
+
+.results-box {
+    background-color: rgb(245, 195, 120);
+    opacity: 0.9;
+    width: 50%;
+    margin-top: 30px;
+    box-shadow: 4px 4px 5px 0px black;
+    border-radius: 10px;
+    margin-bottom: 10px;
+    text-align: center;
+    display: flex;
+    flex-wrap: wrap;
+    padding: 20px;
+}
+
+
+/* block page */
+
+.block {
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 400px;
+    width: 90%;
+    
+}
+
+.block-reason {
+    width: 400px;
+    height: 200px;
+    border-radius: 10px;
+}
+
+
+/* change password page */
+
+.pw-change {
+    width: 40%;
+    padding: 10px;
+}
+
+.margin-bottom {
+    margin-bottom: 10px;
+}
+
+/* new attributes page */
+
+.new-attributes {
+    width: 60%;
+    padding-bottom: 20px;
+}
+
+/* matched up page */
+
+.flex-column2 {
+    width: 50%;
+    text-align: center;
+    padding: 20px;
+}
+
+.matched-video {
+    align-items: center;
+}
+
+.cheers-video {
+    margin-top: 10px;
+    border-radius: 20px;
+    opacity: 0.9;
+    width: 70%;
+}
+
+.matched-up {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin-bottom: 20px;
+    background-color: rgb(36, 172, 230);
+    opacity: 0.7;
+    box-shadow: 4px 4px 5px 0px black;
+    border-radius: 10px;
+    padding: 20px;
+    width: 90%;
+}
+
+.matched-buttons {
+    margin-bottom: 20px;
+    width: 60%;
+    padding: 10px;
+}
+
+
+/* new message page */
+
+.message-section {
+    width: 40%;
+    padding: 10px;
+    text-align:  center;
+}
+
+/* suspended */
+
+.suspended {
+    height: 280px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    padding: 10px;
+}
+
+
+
+
+
+
+@media (min-aspect-ratio: 16/9) {
+    .back-video{
+        width: 100%;
+        height: auto;
+    }
+}
+
+@media (max-aspect-ratio: 16/9) {
+    .back-video {
+        width: auto;
+        height: 100%;
+    }
+}
+
+
+
+.links-glass-box {
+    position: relative;
+    background: transparent;
+    border: 2px solid rgba(255, 255, 255, .5);
+    border-radius: 20px;
+    backdrop-filter: blur(15px);
+    box-shadow: 0 0 30px rgba(0, 0, 0, .5);
+}
+
+
+.bottom-navi {
+    display: flex;
+    width: 600px;
+    background-color: rgb(245, 195, 120);
+    opacity: 0.9;
+    border-radius: 20px;
+    box-shadow: 4px 4px 5px 0px black;
+}
+

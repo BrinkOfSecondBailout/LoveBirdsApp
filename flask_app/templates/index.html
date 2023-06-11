@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Schibsted+Grotesk&family=Titillium+Web:ital,wght@0,300;1,200&display=swap"
+        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Schibsted+Grotesk&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Lovers+Quarrel&display=swap" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='mediaqueries.css') }}">
+    <title>Welcome</title>
+</head>
+<body>
+    <div>
+        <p class="welcome-font">Are you ready to find love?</p>
+    <div class="registration-container">
+        <div class="left-register">
+            <div class="glass-box register">
+            <h2 class="header-text">Register</h2>
+            <div class="red">
+                {% with messages = get_flashed_messages(category_filter=['registration']) %}
+                    {% if messages %}
+                        {% for message in messages %}
+                            <p>*{{message}}</p>
+                        {% endfor %}
+                    {% endif %}
+                {% endwith %}
+            </div>
+            <form action="/process/registration" method="post">
+                <label for="first_name"><h5 class="header-text">First Name:</h5></label>
+                <input class="regular-input" type="text" name="first_name"><br>
+                <label for="last_name"><h5 class="header-text">Last Name:</h5></label>
+                <input class="regular-input" type="text" name="last_name"><br>
+                <label for="email"><h5 class="header-text">Email:</h5></label>
+                <input class="regular-input" type="email" name="email"><br>
+                <label for="password"><h5 class="header-text">Password:</h5></label>
+                <input class="regular-input" type="password" name="password"><br>
+                <label for="confirm_password"><h5 class="header-text">Confirm PW:</h5></label>
+                <input class="regular-input" type="password" name="confirm_password"><br><br>
+                <button class="delete-button"><p>Submit</p></button>
+            </form>
+            </div>
+        </div>
+        <div class="right-login">
+            <div class="glass-box login">
+            <h2 class="header-text">Log in</h2>
+            <div class="red">
+                {% with messages = get_flashed_messages(category_filter=['login']) %}
+                    {% if messages %}
+                        {% for message in messages %}
+                            <p>{{message}}</p>
+                        {% endfor %}
+                    {% endif %}
+                {% endwith %}
+            </div>
+            <form action="/process/login" method="post">
+                <label for="email"><h5 class="header-text">Email:</h5></label>
+                <input class="regular-input" type="email" name="email"><br>
+                <label for="password"><h5 class="header-text">Password:</h5></label>
+                <input class="regular-input" type="password" name="password"><br><br>
+                <button class="delete-button"><p>Submit</p></button>
+            </form>
+            </div>
+        </div>
+    </div>
+    </div>
+</body>
+</html>

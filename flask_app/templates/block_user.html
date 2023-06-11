@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Schibsted+Grotesk&family=Titillium+Web:ital,wght@0,300;1,200&display=swap"
+        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Schibsted+Grotesk&display=swap" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='mediaqueries.css') }}">
+    <title>Block User</title>
+</head>
+<body>
+    <div class="flex-column center block">
+        <h1>Are you sure you want to block and report {{user.first_name}}?</h1>
+        <a href="/dashboard">Go Back</a>
+        <div class="red">
+            {% with messages = get_flashed_messages(category_filter=['block']) %}
+                {% if messages %}
+                    {% for message in messages %}
+                        <p>*{{message}}</p>
+                    {% endfor %}
+                {% endif %}
+            {% endwith %}
+        </div>
+        
+        <div>
+            <form action="/block/confirmed/{{user.id}}" method="post">
+                <label for="reason">What's the reason for the block?</label><br>
+                <textarea name="reason" class="block-reason"></textarea><br><br>
+                <input type="hidden" name="id" value="{{user.id}}">
+                <button class="delete-button"><p>Submit</p></button>
+            </form>
+        </div>
+
+    </div>
+</body>
+</html>

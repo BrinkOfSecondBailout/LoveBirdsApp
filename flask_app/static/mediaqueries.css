@@ -1,0 +1,120 @@
+@media screen and (max-width: 1400px) {
+    .total {
+        display: inline;
+    }
+    .total-box {
+        width: 80%;
+    }
+    .right {
+        width: 70%;
+    }
+    .all-photos1 {
+        width: 80%;
+        display: flex;
+        flex-wrap: wrap;
+        height: 100%;
+    }
+
+    .all-photos {
+        display: flex;
+        flex-wrap: wrap;
+        width: 100%;
+    }
+
+    .message-section {
+        width: 60%;
+    }
+}
+
+@media screen and (max-width: 1000px) {
+    .top-message {
+        width: 100%;
+        text-align: center;
+    }
+    .profile-bar {
+        flex-direction: column;
+    }
+    .display {
+        min-width: 100%;
+    }
+    .inbox {
+        width: 80%;
+    }
+    .message-scroll {
+        width: 80%;
+    }
+    .message-text {
+        max-width: 80%;
+    }
+    .total-box {
+        width: 90%;
+    }
+    .message-section {
+        width: 80%;
+    }
+    .filter-form {
+        width: 80%;
+    }
+    .pw-change {
+        width: 60%;
+    }
+    .new-attributes {
+        width: 70%;
+    }
+    .matched-buttons {
+        width: 80%;
+    }
+    .long-button {
+        width: 90%;
+    }
+    .cheers-video {
+        width: 90%;
+    }
+}
+
+
+@media screen and (max-width: 600px) {
+    .registration-container {
+        flex-direction: column;
+        justify-content: space-between;
+        height: 1000px;
+    }
+
+    .inbox {
+        width: 80%;
+    }
+    .message-box {
+        width: 80%;
+    }
+    .message-scroll {
+        width: 100%;
+    }
+    .total-box {
+        min-width: 90%;
+    }
+    .message-section {
+        width: 70%;
+    }
+    .radio-boxes {
+        width: 80%;
+        display: flex;
+        flex-wrap: wrap;
+    }
+    .pw-change {
+        width: 80%;
+    }
+    .new-attributes {
+        width: 90%;
+    }
+    .matched-buttons {
+        width: 100%;
+    }
+    
+    .block-reason {
+        width: 100%;
+    }
+
+    .cheers-video {
+        width: 100%;
+    }
+}
