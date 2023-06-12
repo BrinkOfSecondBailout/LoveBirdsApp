@@ -311,6 +311,10 @@ a:hover {
     padding: 10px;
 }
 
+.browse {
+    max-width: 300px;
+}
+
 .bio-box {
     background-color: rgb(255, 161, 20);
     opacity: 0.9;
@@ -322,6 +326,10 @@ a:hover {
     text-align: center;
     border: 2px solid rgba(255, 255, 255, .5);
     padding: 10px;
+}
+
+.matches {
+    max-width: 300px;
 }
 
 .center-bottom {

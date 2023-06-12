@@ -44,7 +44,7 @@
     <div class="total">
         <div class="left">
             <div class="total-box">
-                <div class="lovebirds-box">
+                <div class="lovebirds-box browse">
                         <h2>Browse All Lovebirds</h2>
                         <div class="flex2">
                             {% for user in all_users %}
@@ -56,7 +56,7 @@
                         <a href="/filter"><button class="delete-button"><p>Filter</p></button></a>
                 </div>
 
-                <div class="bio-box">
+                <div class="bio-box matches">
                     <h2>All My Matches:</h2>
                     {% if not user_with_matches.matches %}
                         <p>No matches yet... you got work to do!</p>
