@@ -17,12 +17,12 @@
 </head>
 <body>
     <div>
-        <p class="welcome-font">Are you ready to find love?</p>
+        <p class="welcome-font">Welcome</p>
     <div class="registration-container">
         <div class="left-register">
             <div class="glass-box register">
             <h2 class="header-text">Register</h2>
-            <div class="red">
+            <div class="red register">
                 {% with messages = get_flashed_messages(category_filter=['registration']) %}
                     {% if messages %}
                         {% for message in messages %}
@@ -49,7 +49,7 @@
         <div class="right-login">
             <div class="glass-box login">
             <h2 class="header-text">Log in</h2>
-            <div class="red">
+            <div class="red login">
                 {% with messages = get_flashed_messages(category_filter=['login']) %}
                     {% if messages %}
                         {% for message in messages %}

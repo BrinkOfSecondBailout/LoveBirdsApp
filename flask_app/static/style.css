@@ -236,17 +236,17 @@ a:hover {
 }
 
 .right-login {
-
+    margin-top: 20px;
 }
 
 .register {
     padding: 10px;
-    width: 100%;
+    max-width: 90%;
 }
 
 .login {
     padding: 10px;
-    width: 100%;
+    max-width: 90%;
 }
 
 
