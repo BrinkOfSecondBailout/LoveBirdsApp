@@ -16,34 +16,36 @@
     <title>Welcome</title>
 </head>
 <body>
-    <div>
-        <p class="welcome-font">Welcome</p>
+    <div class="welcome-banner">
+        <p class="welcome-font">Love Birds</p>
+        <img class="heart-icon" src="../static/files/heart2.png" alt="heart"/>
+    </div>
     <div class="registration-container">
         <div class="left-register">
             <div class="glass-box register">
-            <h2 class="header-text">Register</h2>
-            <div class="red register">
-                {% with messages = get_flashed_messages(category_filter=['registration']) %}
-                    {% if messages %}
-                        {% for message in messages %}
-                            <p>*{{message}}</p>
-                        {% endfor %}
-                    {% endif %}
-                {% endwith %}
-            </div>
-            <form action="/process/registration" method="post">
-                <label for="first_name"><h5 class="header-text">First Name:</h5></label>
-                <input class="regular-input" type="text" name="first_name"><br>
-                <label for="last_name"><h5 class="header-text">Last Name:</h5></label>
-                <input class="regular-input" type="text" name="last_name"><br>
-                <label for="email"><h5 class="header-text">Email:</h5></label>
-                <input class="regular-input" type="email" name="email"><br>
-                <label for="password"><h5 class="header-text">Password:</h5></label>
-                <input class="regular-input" type="password" name="password"><br>
-                <label for="confirm_password"><h5 class="header-text">Confirm PW:</h5></label>
-                <input class="regular-input" type="password" name="confirm_password"><br><br>
-                <button class="delete-button"><p>Submit</p></button>
-            </form>
+                <h2 class="header-text">Register</h2>
+                <div class="red register">
+                    {% with messages = get_flashed_messages(category_filter=['registration']) %}
+                        {% if messages %}
+                            {% for message in messages %}
+                                <p>*{{message}}</p>
+                            {% endfor %}
+                        {% endif %}
+                    {% endwith %}
+                </div>
+                <form action="/process/registration" method="post">
+                    <label for="first_name"><h5 class="header-text">First Name:</h5></label>
+                    <input class="regular-input" type="text" name="first_name"><br>
+                    <label for="last_name"><h5 class="header-text">Last Name:</h5></label>
+                    <input class="regular-input" type="text" name="last_name"><br>
+                    <label for="email"><h5 class="header-text">Email:</h5></label>
+                    <input class="regular-input" type="email" name="email"><br>
+                    <label for="password"><h5 class="header-text">Password:</h5></label>
+                    <input class="regular-input" type="password" name="password"><br>
+                    <label for="confirm_password"><h5 class="header-text">Confirm PW:</h5></label>
+                    <input class="regular-input" type="password" name="confirm_password"><br><br>
+                    <button class="delete-button"><p>Submit</p></button>
+                </form>
             </div>
         </div>
         <div class="right-login">
@@ -58,6 +60,11 @@
                     {% endif %}
                 {% endwith %}
             </div>
+            <div class="center">
+                <h5>Demo account:</h5>
+                <p>sample@gmail.com</p>
+                <p>sample123</p>
+            </div>
             <form action="/process/login" method="post">
                 <label for="email"><h5 class="header-text">Email:</h5></label>
                 <input class="regular-input" type="email" name="email"><br>
@@ -67,7 +74,6 @@
             </form>
             </div>
         </div>
-    </div>
     </div>
 </body>
 </html>

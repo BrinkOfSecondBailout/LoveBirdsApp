@@ -74,10 +74,17 @@
 
 
 @media screen and (max-width: 600px) {
+    .welcome-banner {
+        display: flex;
+        width: 320px;
+        position: relative;
+        top: 10px;
+    }
     .registration-container {
         flex-direction: column;
         justify-content: space-between;
         height: 1000px;
+        margin-top: 40px;
     }
 
     .inbox {

@@ -110,14 +110,6 @@ a:hover {
     text-shadow: 2px 1px 5px white;
 }
 
-.welcome-font {
-    font-family: 'Lovers Quarrel', cursive;
-    font-size: 150px;
-    color: white;
-    text-shadow: 5px 5px 10px rgb(247, 205, 39);
-    text-align: center;
-}
-
 
 .upload-box {
     width: 100%;
@@ -227,8 +219,32 @@ a:hover {
 }
 
 /* index.html */
+
+.welcome-banner {
+    display: none;
+}
+
+.heart-icon {
+    width: 40px;
+    height: 40px;
+    position: absolute;
+    top: 90px;
+    right: 150px;
+    opacity: 0.7;
+}
+
+.welcome-font {
+    font-family: 'Lovers Quarrel', cursive;
+    font-size: 100px;
+    color: rgb(255, 0, 0);
+    text-shadow: 5px 5px 10px rgb(247, 205, 39);
+    text-align: center;
+    text-shadow: 2px 2px rgb(248, 199, 52);
+}
+
 .registration-container {
     display: flex;
+    margin-top: 40px;
 }
 
 .left-register {
@@ -241,12 +257,12 @@ a:hover {
 
 .register {
     padding: 10px;
-    max-width: 90%;
+    width: 250px;
 }
 
 .login {
     padding: 10px;
-    max-width: 90%;
+    width: 250px;
 }
 
 
