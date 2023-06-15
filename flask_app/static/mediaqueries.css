@@ -35,7 +35,6 @@
     }
 
     .bio-box {
-        background-position: ;
     }
 }
 
@@ -59,9 +58,6 @@
     .nav-bar {
         right: 20px;
     }
-    .wall-box {
-        width: 80%;
-    }
     .display {
         min-width: 80%;
     }
@@ -76,7 +72,7 @@
         max-width: 80%;
     }
     .total-box {
-        width: 90%;
+        width: 100%;
     }
     .message-section {
         width: 80%;
@@ -120,7 +116,8 @@
     }
     .wall-box {
         width: 100%;
-        
+        position: relative;
+        right: 20px;
     }
     .wall-form {
         width: 90%;
@@ -133,6 +130,10 @@
     }
     .message-scroll {
         width: 100%;
+    }
+    .write-on-wall {
+        position: relative;
+        right: 10px;
     }
     .total-box {
         min-width: 90%;

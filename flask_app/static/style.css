@@ -347,7 +347,21 @@ a:hover {
     background-position: right;
 }
 
-.bio-box p {
+.orange-box {
+    background-color: rgb(253, 216, 121);
+    opacity: 0.9;
+    width: 90%;
+    box-shadow: 4px 4px 5px 0px black;
+    border-radius: 10px;
+    padding: 5px;
+    margin-bottom: 10px;
+    text-align: center;
+    border: 2px solid rgba(255, 255, 255, .5);
+    padding: 10px;
+}
+
+
+.bio-box p h4 h2{
     text-shadow: 1px 1px 1px rgb(181, 180, 180);
 }
 

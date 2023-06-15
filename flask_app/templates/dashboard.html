@@ -56,7 +56,7 @@
                         <a href="/filter"><button class="delete-button"><p>Filter</p></button></a>
                 </div>
 
-                <div class="bio-box matches">
+                <div class="orange-box matches">
                     <h2>All My Matches:</h2>
                     {% if not user_with_matches.matches %}
                         <p>No matches yet... you got work to do!</p>
@@ -77,7 +77,7 @@
                     {% endif %}
                 </div>
 
-                <div class="bio-box matches">
+                <div class="orange-box matches">
                     <h3>Hearts I've Sent Out To:</h3>
                     {% for receiver in user_with_matches.hearts_sent %}
                         {% if not receiver.id%}
