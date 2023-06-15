@@ -8,6 +8,7 @@
     .right {
         width: 70%;
     }
+
     .all-photos1 {
         width: 80%;
         display: flex;
@@ -20,9 +21,21 @@
         flex-wrap: wrap;
         width: 100%;
     }
-
+    .wall-form {
+        width: 70%;
+    }
+    .wall-box {
+        width: 70%;
+    }
     .message-section {
         width: 60%;
+    }
+    .display {
+        width: 70%;
+    }
+
+    .bio-box {
+        background-position: ;
     }
 }
 
@@ -31,12 +44,28 @@
         width: 100%;
         text-align: center;
     }
+    .profile-pic {
+        position: relative;
+        right: 5px;
+    }
     .profile-bar {
         flex-direction: column;
+        position: relative;
+        right: 5px;
+    }
+    .wall-box {
+        width: 70%;
+    }
+    .nav-bar {
+        right: 20px;
+    }
+    .wall-box {
+        width: 80%;
     }
     .display {
-        min-width: 100%;
+        min-width: 80%;
     }
+
     .inbox {
         width: 80%;
     }
@@ -70,6 +99,9 @@
     .cheers-video {
         width: 90%;
     }
+    .send-desc {
+        width: 60%;
+    }
 }
 
 
@@ -86,7 +118,13 @@
         height: 1000px;
         margin-top: 40px;
     }
-
+    .wall-box {
+        width: 100%;
+        
+    }
+    .wall-form {
+        width: 90%;
+    }
     .inbox {
         width: 80%;
     }
@@ -120,8 +158,16 @@
     .block-reason {
         width: 100%;
     }
-
     .cheers-video {
         width: 100%;
+    }
+    .send-desc {
+        width: 80%;
+    }
+    .display {
+        min-width: 100%;
+    }
+    .one-photo {
+        width: 200px;
     }
 }

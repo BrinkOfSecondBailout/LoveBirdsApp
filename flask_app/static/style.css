@@ -57,6 +57,7 @@ a {
     position: relative;
     letter-spacing: 0.5px;
     padding: 0 10px;
+    text-shadow: 2px 2px rgb(151, 150, 150);
 }
 
 a:hover {
@@ -175,7 +176,6 @@ a:hover {
     overflow-x: hidden;
     overflow-y: auto;
     direction: rtl;
-
 }
 
 .one-photo {
@@ -312,7 +312,8 @@ a:hover {
 .total-box {
     width: 100%;
     padding: 20px;
-    padding: 10px;
+    position: relative;
+    right: 20px;
 }
 
 .lovebirds-box {
@@ -342,6 +343,12 @@ a:hover {
     text-align: center;
     border: 2px solid rgba(255, 255, 255, .5);
     padding: 10px;
+    background-image: url(../static/files/background-bio4.jpg);
+    background-position: right;
+}
+
+.bio-box p {
+    text-shadow: 1px 1px 1px rgb(181, 180, 180);
 }
 
 .matches {
@@ -424,8 +431,13 @@ a:hover {
     padding: 10px;
 }
 
+.display-letter {
+    width: 60%;
+    position: relative;
+}
+
 .display {
-    width: 70%;
+    width: 100%;
 }
 
 .all-photos1 {
@@ -494,7 +506,32 @@ a:hover {
 }
 
 .send-heart {
-    font-size: medium;
+    font-size: small;
+}
+
+.black {
+    color: black;
+}
+
+.send-desc {
+    width: 40%;
+    background-color: rgba(255, 0, 0, 0.463);
+    padding: 10px;
+    border-radius: 1rem;
+    color: white;
+    box-shadow: 4px 4px 5px 0px black;
+    border-radius: 10px;
+}
+
+.white {
+    color: white;
+}
+
+.descriptions {
+    background-color: rgba(255, 255, 255, 0.65);
+    padding: 10px;
+    border-radius: 10px;
+    margin-top: 10px;
 }
 
 /* edit profile */
@@ -617,7 +654,7 @@ a:hover {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    height: 400px;
+    height: 500px;
     width: 90%;
     
 }
@@ -626,6 +663,11 @@ a:hover {
     width: 400px;
     height: 200px;
     border-radius: 10px;
+}
+
+.go-back {
+    margin-top: 10px;
+    margin-bottom: 10px;
 }
 
 

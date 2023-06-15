@@ -16,8 +16,8 @@
 </head>
 <body>
     <div>
-        <div class="top-message display">
-            <h1 class="hello-message">Hi, my name is {{user.first_name}} {{user.last_name}}!</h1>
+        <div class="top-message display-letter">
+            <u><h1 class="hello-message">{{user.first_name}} {{user.last_name}}</h1></u>
         </div>
         <div class="profile-bar">
             <div class="profile-pic">
@@ -31,10 +31,10 @@
             <div class="nav-links">
                 <div class="glass-box nav-bar">
                     <h4><a href="/dashboard">Dashboard</a></h4>
-                    <h4><a href="/logout">Logout</a></h4>
                     <h4><a href="/users/edit">Edit profile</a></h4>
                     <h4><a href="/users/inbox">Inbox</a></h4>
                     <h4>(You have <span class="notifications">{{user.new_message}}</span> new message)</h4>
+                    <h4><a href="/logout">Logout</a></h4>
                 </div>
             </div>
         </div>
@@ -49,31 +49,29 @@
                 </div>
             </div>
         <div class="right">
-            <div class="red">
+            <div class="red center">
                 {% with messages = get_flashed_messages(category_filter=['upload']) %}
                     {% if messages %}
-                    <ul>
                         {% for message in messages %}
-                        <li>
                             <p>{{ message }}</p>
-                        </li>
                         {% endfor %}
-                    </ul>
                     {% endif %}
                 {% endwith %}
             </div>
             <div class="total-box display">
                 <div class="bio-box">
-                    <h2>A little bit about myself:</h2>
+                    <h2 class="white">A little bit about me:</h2>
                     {% if attributes %}
-                        <h4>{{attributes.description}}</h4>
-                        <h4>{{attributes.age}} years of age</h4>
-                        <h4>Gender is {{attributes.gender}}</h4>
-                        <h4>I {{attributes.smoker}} smoke</h4>
-                        <h4>I {{attributes.drinker}} drink</h4>
-                        <h4>Looking for {{attributes.dating_goal}}</h4>
-                        <h4>My favorite hobby would have to be {{attributes.hobbies}}</h4>
-                        <h4>My body type is {{attributes.body_type}} ;)</h4>
+                        <div class="descriptions">
+                            <h4>{{attributes.description}}</h4>
+                            <h5>{{attributes.age}} years of age</h5>
+                            <h5>Gender: {{attributes.gender}}</h5>
+                            <h5>I {{attributes.smoker}} smoke</h5>
+                            <h5>I {{attributes.drinker}} drink</h5>
+                            <h5>Looking for {{attributes.dating_goal}}</h5>
+                            <h5>Favorite hobby: {{attributes.hobbies}}</h5>
+                            <h5>Body type: {{attributes.body_type}}</h5>
+                        </div>
                     {% endif %}
                     {% if not attributes %}
                         <h4>No details for this user yet... :(</h4>
@@ -89,9 +87,9 @@
     </div>
     <div class="bottom">
         {% if session.user_id != user.id %}
-            <div class="center">
-                <h3>Send a heart!</h3>
-                <p class="send-heart">Your heart will be sent without them knowing, but if they send you one back, you can start messaging your lovebird!</p>
+            <div class="center send-desc">
+                <h3 class="black">Send a heart!</h3>
+                <p class="send-heart">Your heart will be sent without them knowing, but if they send you one back, you can start messaging!</p>
             </div>
             <div class="center red">
                 {% with messages = get_flashed_messages(category_filter=['heart']) %}

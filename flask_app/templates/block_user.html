@@ -17,7 +17,7 @@
 <body>
     <div class="flex-column center block">
         <h1>Are you sure you want to block and report {{user.first_name}}?</h1>
-        <a href="/dashboard">Go Back</a>
+        <a href="/dashboard" class="go-back">go back</a>
         <div class="red">
             {% with messages = get_flashed_messages(category_filter=['block']) %}
                 {% if messages %}
@@ -31,6 +31,7 @@
         <div>
             <form action="/block/confirmed/{{user.id}}" method="post">
                 <label for="reason">What's the reason for the block?</label><br>
+                <p>*after 3 blocks, the account will be permanently suspended</p>
                 <textarea name="reason" class="block-reason"></textarea><br><br>
                 <input type="hidden" name="id" value="{{user.id}}">
                 <button class="delete-button"><p>Submit</p></button>
