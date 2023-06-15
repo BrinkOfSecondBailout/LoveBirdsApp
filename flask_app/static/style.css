@@ -310,7 +310,7 @@ a:hover {
 }
 
 .total-box {
-    width: 100%;
+    max-width: 400px;
     padding: 20px;
     position: relative;
     right: 20px;
@@ -546,6 +546,7 @@ a:hover {
     padding: 10px;
     border-radius: 10px;
     margin-top: 10px;
+    max-width: 90%;
 }
 
 /* edit profile */
