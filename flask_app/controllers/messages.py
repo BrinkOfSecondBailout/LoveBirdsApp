@@ -79,8 +79,8 @@ def show_message_threads():
 
     return render_template('message_threads.html', messages=messages, user=user1)
 
-@app.route('/users/inbox')
-def inbox_folder():
+@app.route('/users/inbox/<int:id>')
+def inbox_folder(id):
     if not session:
         return redirect('/logout')
     data = {
