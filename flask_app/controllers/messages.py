@@ -51,7 +51,7 @@ def delete_message(id):
         'id': id
     }
     message.Message.delete_message(data)
-    return redirect('/users/inbox')
+    return redirect('/users/messages')
 
 
 @app.route('/users/messages')
@@ -84,12 +84,12 @@ def inbox_folder(id):
     if not session:
         return redirect('/logout')
     data = {
-        'user_id': session['user_id']
+        'user_id': session['user_id'],
+        'other_id': id
     }
     id = session['user_id']
 
-    messages = user.User.get_all_messages_for_me(data)
-    user.User.reset_new_message_count(data)
+    messages = user.User.get_all_messages_for_me_by_one_user(data)
 
     all_pics = image.Photo.query.filter_by(user=id).all()
 

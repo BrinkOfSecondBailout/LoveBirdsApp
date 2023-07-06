@@ -176,6 +176,29 @@ class User:
         return all_messages
     
     @classmethod
+    def get_all_messages_for_me_by_one_user(cls, data):
+        query = 'SELECT * FROM messages LEFT JOIN users ON messages.sender_id = users.id WHERE(receiver_id = %(user_id)s AND sender_id = %(other_id)s) OR(receiver_id = %(other_id)s AND sender_id = %(user_id)s) ORDER BY messages.created_at ASC;'
+        results = connectToMySQL('lovebirds_schema').query_db(query, data)
+        all_messages = []
+        for row in results:
+            one_message = Message(row)
+            one_message_sender_info = {
+                'id': row['users.id'],
+                'first_name': row['first_name'],
+                'last_name': row['last_name'],
+                'email': None,
+                'password': None,
+                'created_at': None,
+                'updated_at': None,
+                'num_of_blocks': None,
+                'new_message': None,
+                'suspended': None
+            }
+            one_message.sender = cls(one_message_sender_info)
+            all_messages.append(one_message)
+        return all_messages
+    
+    @classmethod
     def reset_new_message_count(cls, data):
         query = 'UPDATE users SET new_message = 0 WHERE id = %(user_id)s;'
         return connectToMySQL('lovebirds_schema').query_db(query, data)

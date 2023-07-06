@@ -44,15 +44,33 @@
             {% if messages %}
                 <div class="message-scroll">
                 {% for message in messages %}
-                    <div class="message-box">
-                        <p>From: <a href="/users/{{message.sender.id}}">{{message.sender.first_name}}</a></p>
-                        <h4 class="message-text">{{message.text}}</h4>
-                        <p>{{message.created_at.strftime("%I:%M %a - %b %d")}}</p>
-                        <div class="message-buttons">
-                            <a href="/messages/new/{{message.sender.id}}"><button class="delete-button"><p>Reply</p></button></a>
-                            <a href="/messages/delete/{{message.id}}"><button class="delete-button"><p>Delete</p></button></a>
+                    {% if message.sender.id == session.user_id %}
+                        <div class="one-message">
+                            <div class="left-blank">
+                            </div>
+                            <div class="outgoing-message">
+                                <h4 class="message-text">{{message.text}}</h4>
+                                <p class="small-font">{{message.created_at.strftime("%I:%M %a - %b %d")}}</p>
+                                <div class="message-buttons">
+                                    <a href="/messages/delete/{{message.id}}"><button class="delete-button"><p>Delete</p></button></a>
+                                </div>
+                            </div>
                         </div>
-                    </div>
+                    {% endif %}
+
+                    {% if message.sender.id != session.user_id %}
+                        <div class="one-message">
+                            <div class="incoming-message">
+                                <h4 class="message-text">{{message.text}}</h4>
+                                <p class="small-font">{{message.created_at.strftime("%I:%M %a - %b %d")}}</p>
+                                <div class="message-buttons">
+                                    <a href="/messages/delete/{{message.id}}"><button class="delete-button"><p>Delete</p></button></a>
+                                </div>
+                            </div>
+                            <div class="right-blank">
+                            </div>
+                        </div>
+                    {% endif %}
                 {% endfor %}
                 </div>
             {% endif %}
@@ -60,6 +78,15 @@
             {% if not messages %}
                 <p>No messages yet...</p>
             {% endif %}
+
+            <div class="reply-box">
+                <form action="/messages/process/" method="post">
+                    <input type="textarea" name="text" class="message-field" /><br>
+                    <button class="reply-button">
+                        <p>Send</p>
+                    </button>
+                </form>
+            </div>
         </div>
     </div>
 </body>
