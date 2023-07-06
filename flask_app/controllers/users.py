@@ -224,30 +224,7 @@ def unsend_a_heart(id):
 
     return redirect('/dashboard')
 
-@app.route('/users/inbox')
-def inbox_folder():
-    if not session:
-        return redirect('/logout')
-    data = {
-        'user_id': session['user_id']
-    }
-    id = session['user_id']
-    
-    messages = user.User.get_all_messages_for_me(data)
-    user.User.reset_new_message_count(data)
 
-    all_pics = image.Photo.query.filter_by(user=id).all()
-
-    user1 = user.User.get_info_by_id(data)
-    if user1.suspended == "yes":
-        return redirect('/suspended')
-
-    for pic in all_pics:
-        if(pic.profile == "yes"):
-            profile_pic = pic
-            return render_template('inbox.html', messages=messages, profile=profile_pic, user=user1)
-        
-    return render_template('inbox.html', messages=messages, user=user1)
 
 @app.route('/block/<int:id>')
 def block_user(id):

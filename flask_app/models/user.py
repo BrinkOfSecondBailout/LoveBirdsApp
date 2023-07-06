@@ -129,6 +129,30 @@ class User:
         return connectToMySQL('lovebirds_schema').query_db(query)
     
     @classmethod
+    def get_all_messages_by_threads(cls, data):
+        query = 'SELECT * FROM messages LEFT JOIN users ON messages.sender_id = users.id WHERE receiver_id = %(user_id)s GROUP BY users.id;'
+        results = connectToMySQL('lovebirds_schema').query_db(query, data)
+        all_messages = []
+        for row in results:
+            one_message = Message(row)
+            one_message_sender_info = {
+                'id': row['users.id'],
+                'first_name': row['first_name'],
+                'last_name': row['last_name'],
+                'email': None,
+                'password': None,
+                'created_at': None,
+                'updated_at': None,
+                'num_of_blocks': None,
+                'new_message': None,
+                'suspended': None
+            }
+            one_message.sender = cls(one_message_sender_info)
+            all_messages.append(one_message)
+        return all_messages
+    
+    
+    @classmethod
     def get_all_messages_for_me(cls, data):
         query = 'SELECT * FROM messages LEFT JOIN users ON messages.sender_id = users.id WHERE receiver_id = %(user_id)s;'
         results = connectToMySQL('lovebirds_schema').query_db(query, data)
