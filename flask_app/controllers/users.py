@@ -280,30 +280,27 @@ def filter_out():
 
 @app.route('/users/messages')
 def show_message_threads():
-    try:
-        if not session:
-            return redirect('/logout')
-        data = {
-            'user_id': session['user_id']
-        }
-        id = session['user_id']
-        user.User.reset_new_message_count(data)
+    if not session:
+        return redirect('/logout')
+    data = {
+        'user_id': session['user_id']
+    }
+    id = session['user_id']
+    user.User.reset_new_message_count(data)
 
 
-        all_pics = image.Photo.query.filter_by(user=id).all()
+    all_pics = image.Photo.query.filter_by(user=id).all()
 
-        user1 = user.User.get_info_by_id(data)
-        if user1.suspended == "yes":
-            return redirect('/suspended')
+    user1 = user.User.get_info_by_id(data)
+    if user1.suspended == "yes":
+        return redirect('/suspended')
 
-        for pic in all_pics:
-            if(pic.profile == "yes"):
-                profile_pic = pic
-                return render_template('message_threads.html', messages=user.User.get_all_messages_by_threads(data), profile=profile_pic, user=user1)
+    for pic in all_pics:
+        if(pic.profile == "yes"):
+            profile_pic = pic
+            return render_template('message_threads.html', messages=user.User.get_all_messages_by_threads(data), profile=profile_pic, user=user1)
 
-        return render_template('message_threads.html', messages=user.User.get_all_messages_by_threads(data), user=user1)
-    except Exception as e:
-        return f"An error occured: {str(e)}"
+    return render_template('message_threads.html', messages=user.User.get_all_messages_by_threads(data), user=user1)
 
 
 @app.route('/users/inbox/<int:id>')
