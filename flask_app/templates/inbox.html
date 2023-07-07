@@ -2,17 +2,17 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
         href="https://fonts.googleapis.com/css2?family=Schibsted+Grotesk&family=Titillium+Web:ital,wght@0,300;1,200&display=swap"
         rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Schibsted+Grotesk&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Schibsted+Grotesk&display=swap"
+        rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='mediaqueries.css') }}">
-    <title>Inbox</title>
+    <title>Messages</title>
 </head>
 <body>
     <div>
@@ -25,7 +25,7 @@
                     <a href="/dashboard"><img src="/pics/{{profile.id}}" alt="profile-pic" class="photo-profile-main"></a>
                 {% endif %}
                 {% if not profile %}
-                    <a href="/dashboard"><img src="../static/files/noprofile.png" alt="no profile pic" class="photo-profile-main"></a>
+                    <a href="/dashboard"><img src="https://upload-icon.s3.amazonaws.com/uploads/icons/png/19339625881548233621-512.png" alt="no-profile-pic" class="photo-profile-main"></a>
                 {% endif %}
             </div>
             <div class="nav-links">
@@ -50,7 +50,7 @@
                             <a href="/users/{{user2.id}}"><img src="/pics/{{profile2.id}}" alt="profile-pic" class="photo-profile-main-sm"></a>
                         {% endif %}
                         {% if not profile2 %}
-                            <a href="/users/{{user2.id}}"><img src="../static/files/noprofile.png" alt="no-profile-pic" class="photo-profile-main-sm"></a>
+                            <a href="/users/{{user2.id}}"><img src="https://upload-icon.s3.amazonaws.com/uploads/icons/png/19339625881548233621-512.png" alt="no profile pic" class="photo-profile-main-sm"></a>
                         {% endif %}
                     </div>
                 </div>

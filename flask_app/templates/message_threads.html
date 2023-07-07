@@ -21,11 +21,11 @@
         <div class="profile-bar">
             <div class="profile-pic">
                 {% if profile %}
-                <a href="/dashboard"><img src="/pics/{{profile.id}}" alt="profile-pic" class="photo-profile-main"></a>
+                    <a href="/dashboard"><img src="/pics/{{profile.id}}" alt="profile-pic" class="photo-profile-main"></a>
                 {% endif %}
                 {% if not profile %}
-                <a href="/dashboard"><img src="../static/files/noprofile.png" alt="no-profile-pic"
-                        class="photo-profile-main"></a>
+                    <a href="/dashboard"><img src="../static/files/noprofile.png" alt="no-profile-pic"
+                    class="photo-profile-main"></a>
                 {% endif %}
             </div>
             <div class="nav-links">
@@ -42,8 +42,11 @@
         <div class="flex-column inbox">
             {% if messages %}
                 <div class="message-scroll">
+                    <div class="center">
+                        <h3>Message Threads</h3>
+                    </div>
                     {% for message in messages %}
-                    <div class="message-box">
+                    <div class="thread-box center">
                         <p><a href="/users/inbox/{{message.sender.id}}">{{message.sender.first_name}} {{message.sender.last_name}}</a></p>
                     </div>
                     {% endfor %}
@@ -51,7 +54,7 @@
             {% endif %}
         
             {% if not messages %}
-            <p>No messages yet...</p>
+                <p>No messages yet...</p>
             {% endif %}
         </div>
 

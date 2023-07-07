@@ -596,6 +596,19 @@ a:hover {
     margin-bottom: 15px;
 }
 
+.thread-box {
+    background-color: rgba(250, 55, 55, 0.951);
+    opacity: 0.9;
+    border-radius: 20px;
+    box-shadow: 4px 4px 5px 0px black;
+    padding: 10px;
+    color: black;
+    width: 30%;
+    margin-top: 15px;
+    margin-bottom: 15px;
+    padding: 10px;
+}
+
 .one-message {
     display: flex;
 }

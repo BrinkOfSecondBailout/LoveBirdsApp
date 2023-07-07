@@ -158,22 +158,26 @@ def show_profile(id):
     data = {
         'user_id': id
     }
+
+    data2 = {
+        'user_id': session['user_id']
+    }
     
     attributes = attribute.Attribute.get_attribute_by_user_id(data)
     all_pics = image.Photo.query.filter_by(user=id).all()
 
-    
+    me=user.User.get_info_by_id(data2)
 
     if not all_pics:
         flash('This user has not uploaded any pics yet!', 'upload')
-        return render_template('display_profile.html', user=user.User.get_info_by_id(data), attributes=attributes)
+        return render_template('display_profile.html', me=me, user=user.User.get_info_by_id(data), attributes=attributes)
     
     for pic in all_pics:
         if(pic.profile == "yes"):
             profile_pic = pic
-            return render_template('display_profile.html', user=user.User.get_info_by_id(data), pics=all_pics, profile=profile_pic, attributes=attributes)
+            return render_template('display_profile.html', me=me, user=user.User.get_info_by_id(data), pics=all_pics, profile=profile_pic, attributes=attributes)
         
-    return render_template('display_profile.html', user=user.User.get_info_by_id(data), pics=all_pics, attributes=attributes)
+    return render_template('display_profile.html', me=me, user=user.User.get_info_by_id(data), pics=all_pics, attributes=attributes)
 
 
 @app.route('/sendheart/<int:id>')
