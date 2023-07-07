@@ -287,7 +287,7 @@ def show_message_threads():
     }
     id = session['user_id']
     user.User.reset_new_message_count(data)
-    messages = user.User.get_all_messages_by_threads(data)
+
 
     all_pics = image.Photo.query.filter_by(user=id).all()
 
@@ -298,9 +298,9 @@ def show_message_threads():
     for pic in all_pics:
         if(pic.profile == "yes"):
             profile_pic = pic
-            return render_template('message_threads.html', messages=messages, profile=profile_pic, user=user1)
+            return render_template('message_threads.html', messages=user.User.get_all_messages_by_threads(data), profile=profile_pic, user=user1)
 
-    return render_template('message_threads.html', messages=messages, user=user1)
+    return render_template('message_threads.html', messages=user.User.get_all_messages_by_threads(data), user=user1)
 
 
 @app.route('/users/inbox/<int:id>')
