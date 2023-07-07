@@ -286,8 +286,8 @@ def show_message_threads():
         'user_id': session['user_id']
     }
     id = session['user_id']
-    messages = user.User.get_all_messages_by_threads(data)
     user.User.reset_new_message_count(data)
+    messages = user.User.get_all_messages_by_threads(data)
 
     all_pics = image.Photo.query.filter_by(user=id).all()
 
