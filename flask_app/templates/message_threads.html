@@ -40,20 +40,22 @@
         </div>
 
         <div class="flex-column inbox">
-            {% if messages %}
+            {% if user_matches.matches %}
                 <div class="message-scroll">
                     <div class="center">
                         <h3>Message Threads</h3>
                     </div>
-                    {% for message in messages %}
-                    <div class="thread-box center">
-                        <p><a href="/users/inbox/{{message.sender.id}}">{{message.sender.first_name}} {{message.sender.last_name}}</a></p>
-                    </div>
+                    {% for match in user_matches.matches %}
+                        {% if match.first_name != None %}
+                        <div class="thread-box center">
+                            <p><a href="/users/inbox/{{ match.id }}">{{ match.first_name }} {{ match.last_name }}</a></p>
+                        </div>
+                        {% endif %}
                     {% endfor %}
                 </div>
             {% endif %}
         
-            {% if not messages %}
+            {% if not user_matches.matches %}
                 <div class="center">
                     <p>No messages yet...</p>
                 </div>

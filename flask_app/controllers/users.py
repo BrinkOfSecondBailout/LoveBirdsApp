@@ -288,6 +288,10 @@ def show_message_threads():
     id = session['user_id']
     user.User.reset_new_message_count(data)
 
+    data2 = {
+        'id': session['user_id']
+    }
+    user_with_matches = user.User.get_me_with_all_my_hearts(data2)
 
     all_pics = image.Photo.query.filter_by(user=id).all()
 
@@ -298,9 +302,9 @@ def show_message_threads():
     for pic in all_pics:
         if(pic.profile == "yes"):
             profile_pic = pic
-            return render_template('message_threads.html', messages=user.User.get_all_messages_by_threads(data), profile=profile_pic, user=user1)
+            return render_template('message_threads.html', user_matches = user_with_matches, profile=profile_pic, user=user1)
 
-    return render_template('message_threads.html', messages=user.User.get_all_messages_by_threads(data), user=user1)
+    return render_template('message_threads.html', user_matches=user_with_matches, user=user1)
 
 
 @app.route('/users/inbox/<int:id>')
