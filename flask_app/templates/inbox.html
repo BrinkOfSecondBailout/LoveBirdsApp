@@ -17,7 +17,7 @@
 <body>
     <div>
         <div class="top-message home">
-            <h1 class="hello-message">All My Messages:</h1>
+            <h1 class="hello-message">Chat with {{user2.first_name}}</h1>
         </div>
         <div class="profile-bar">
             <div class="profile-pic">
@@ -25,7 +25,7 @@
                     <a href="/dashboard"><img src="/pics/{{profile.id}}" alt="profile-pic" class="photo-profile-main"></a>
                 {% endif %}
                 {% if not profile %}
-                    <a href="/dashboard"><img src="../static/files/noprofile.png" alt="no-profile-pic" class="photo-profile-main"></a>
+                    <a href="/dashboard"><img src="../static/files/noprofile.png" alt="no profile pic" class="photo-profile-main"></a>
                 {% endif %}
             </div>
             <div class="nav-links">
@@ -43,6 +43,17 @@
         <div class="flex-column inbox">
             {% if messages %}
                 <div class="message-scroll">
+                <div class="center padding">
+                    <h3><a href="/users/{{user2.id}}">{{ user2.first_name }} {{ user2.last_name }}</a></h3>
+                    <div class="profile-pic">
+                        {% if profile2 %}
+                            <a href="/users/{{user2.id}}"><img src="/pics/{{profile2.id}}" alt="profile-pic" class="photo-profile-main-sm"></a>
+                        {% endif %}
+                        {% if not profile2 %}
+                            <a href="/users/{{user2.id}}"><img src="../static/files/noprofile.png" alt="no-profile-pic" class="photo-profile-main-sm"></a>
+                        {% endif %}
+                    </div>
+                </div>
                 {% for message in messages %}
                     {% if message.sender.id == session.user_id %}
                         <div class="one-message">
@@ -80,8 +91,10 @@
             {% endif %}
 
             <div class="reply-box">
-                <form action="/messages/process/" method="post">
+                <form action="/messages/threads/process/{{user2.id}}" method="post">
                     <input type="textarea" name="text" class="message-field" /><br>
+                    <input type="hidden" name="sender_id" value="{{session.user_id}}">
+                    <input type="hidden" name="receiver_id" value="{{user2.id}}">
                     <button class="reply-button">
                         <p>Send</p>
                     </button>

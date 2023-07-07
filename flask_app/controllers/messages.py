@@ -43,6 +43,16 @@ def process_message(id):
     myId = session['user_id']
     return redirect('/users/' + str(myId))
 
+
+@app.route('/messages/threads/process/<int:id>', methods=['POST'])
+def process_message_from_inbox(id):
+    if not session:
+        return redirect('/logout')
+    if not message.Message.validate_message(request.form):
+        return redirect('/users/inbox/' + str(id))
+    message.Message.save_message(request.form)
+    return redirect('/users/inbox/' + str(id))
+
 @app.route('/messages/delete/<int:id>')
 def delete_message(id):
     if not session:
@@ -87,19 +97,38 @@ def inbox_folder(id):
         'user_id': session['user_id'],
         'other_id': id
     }
-    id = session['user_id']
+    data2 = {
+        'user_id': id
+    }
+    
+    user_id = session['user_id']
+    
+
+    user2 = user.User.get_info_by_id(data2)
 
     messages = user.User.get_all_messages_for_me_by_one_user(data)
 
-    all_pics = image.Photo.query.filter_by(user=id).all()
+    all_pics = image.Photo.query.filter_by(user=user_id).all()
+    all_others_pics = image.Photo.query.filter_by(user=id).all()
 
     user1 = user.User.get_info_by_id(data)
+    
     if user1.suspended == "yes":
         return redirect('/suspended')
 
+    
     for pic in all_pics:
         if(pic.profile == "yes"):
             profile_pic = pic
-            return render_template('inbox.html', messages=messages, profile=profile_pic, user=user1)
+            for pic2 in all_others_pics:
+                if(pic2.profile == "yes"):
+                    profile_pic2 = pic2
+                    return render_template('inbox.html', messages=messages, profile=profile_pic, profile2=profile_pic2, user=user1, user2=user2)
+            return render_template('inbox.html', messages=messages, profile=profile_pic, user=user1, user2=user2)
 
-    return render_template('inbox.html', messages=messages, user=user1)
+    for pic2 in all_others_pics:
+        if(pic2.profile == "yes"):
+            profile_pic2 = pic2
+            return render_template('inbox.html', profile2=profile_pic2, messages=messages, user=user1, user2=user2)
+
+    return render_template('inbox.html', messages=messages, user=user1, user2=user2)
