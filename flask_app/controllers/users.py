@@ -34,9 +34,6 @@ def process_login():
         return redirect('/')
     else:
         session['user_id'] = user1['id']
-        data = {
-            'user_id': session['user_id']
-        }
         return redirect('/dashboard')
     
 @app.route('/dashboard')
