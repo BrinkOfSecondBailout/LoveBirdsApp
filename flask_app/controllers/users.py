@@ -45,26 +45,33 @@ def dashboard():
     }
     id = session['user_id']
 
+    # find all pics associated with this user
     all_pics = image.Photo.query.filter_by(user=id).all()
-    
+
+    # find all users available on the app
     all_users = user.User.get_all_users()
     
     data2 = {
         'id': session['user_id']
     }
+
+    # find all users current user is matched with
     user_with_matches = user.User.get_me_with_all_my_hearts(data2)
 
+    # find all wall notes
     wall_notes = wallnote.Wallnote.get_all_notes_with_users()
 
     user1 = user.User.get_info_by_id(data)
     if user1.suspended == "yes":
         return redirect('/suspended')
 
+    # loop through all pictures of user find the assigned profile pic
     for pic in all_pics:
         if(pic.profile == "yes"):
             profile_pic = pic
             return render_template('dashboard.html', all_users=all_users, profile=profile_pic, user=user1, user_with_matches=user_with_matches, wall_notes = wall_notes)
 
+    # if user does not have a profile pic
     return render_template('dashboard.html', all_users=all_users, user=user1, user_with_matches=user_with_matches, wall_notes=wall_notes)
 
 
