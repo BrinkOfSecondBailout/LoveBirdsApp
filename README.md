@@ -39,7 +39,7 @@ Start the application
 pipenv shell
 ```
 ```bash
-python myserver.py
+python server.py
 ```
 
 ## Questions
